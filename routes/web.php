@@ -13,6 +13,56 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/competiciones', function () {
+    return view('competiciones');
+});
+Route::get('/competiciones/crear', function () {
+    return 'Crear competición';
+});
+Route::get('/competiciones/{id}/editar', function ($id) {
+    return 'Editar competición '.$id;
+});
+
+
+Route::get('/paises', function() {
+    return 'Países participantes';
+});
+Route::get('/paises/crear', function () {
+    return 'Añadir país';
+});
+Route::get('/paises/{id}/editar', function ($id) {
+    return 'Editar país '.$id;
+});
+Route::get('/paises/{id}', function ($id) {
+    return 'Detalles país '.$id;
+});
+
+
+Route::get('/equipos', function() {
+    return 'Equipos participantes';
+});
+Route::get('/equipos/crear', function () {
+    return 'Crear equipo';
+});
+Route::get('/equipos/{id}/editar', function ($id) {
+    return 'Editar equipo '.$id;
+});
+Route::get('/equipos/{id}', function ($id) {
+    return 'Detalles equipo '.$id;
+});
+
+
+Route::get('/competiciones/organigrama', function() {
+    return 'Organigrama';
+});
+
+
+Route::get('/jugadores', function() {
+    return 'Jugadores';
+});
+Route::get('/jugadores/crear', function () {
+    return 'Añadir jugador';
+});
+Route::get('/jugadores/{id}/editar', function () {
+    return 'Editar jugador '.$id;
 });
