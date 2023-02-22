@@ -4,5 +4,4 @@
                 </b>
             </div>
         </footer>
-    </body>
 </html>
