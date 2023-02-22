@@ -16,10 +16,8 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('diminutive')->unique();
             $table->string('coach');
-            $table->integer('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('countries');
-            $table->integer('competition_id')->unsigned();
-            $table->foreign('competition_id')->references('id')->on('competitions')->nullable();
+            $table->foreignId('country_id')->constrained();
+            $table->foreignId('competition_id')->constrained();
             $table->timestamps();
         });
     }

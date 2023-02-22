@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('host_country')->nullable();
             $table->integer('n_participants_teams')->nullable();
             $table->timestamps();

@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('number');
             $table->string('nationality');
-            $table->integer('team_id')->unsigned();
-            $table->foreign('team_id')->references('id')->on('teams');
+            $table->foreignId('team_id')->constrained();
             $table->string('position');
             $table->timestamps();
         });
