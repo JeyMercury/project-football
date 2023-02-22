@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('diminutive')->nullable();
             $table->string('continent');
             $table->string('first_language');
-            $table->timestamp('created_at')->nullable();
             $table->timestamps();
         });
     }

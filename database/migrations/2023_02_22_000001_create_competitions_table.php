@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('host_country')->nullable();
-            $table->timestamp('participants_teams')->nullable();
+            $table->integer('n_participants_teams')->nullable();
             $table->timestamps();
         });
     }
