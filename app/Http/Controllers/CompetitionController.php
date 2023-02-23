@@ -12,11 +12,18 @@ class CompetitionController extends Controller
 
         $title = 'Competiciones';
 
-        return view('competiciones');
+        return view('competitionsIndex', [
+            'competitions' => $competitions,
+            'title' => $title,
+        ]);
     }
 
-    public function show() {
-        return 'Detalles competición '.$id;
+    public function show($id) {
+        $competition = Competition::find($id);
+
+        return view('competiciones.show', [
+            'competition' => $competition,
+        ]);
     }
 
     public function create() {
