@@ -15,10 +15,16 @@ use App\Http\Controllers\CompetitionController;
 |
 */
 
-Route::get('/competiciones', [CompetitionController::class, 'index']);
-Route::get('/competiciones/{id}', [CompetitionController::class, 'show']);
-Route::get('/competiciones/crear', [CompetitionController::class, 'create']);
-Route::get('/competiciones/{id}/editar', [CompetitionController::class, 'edit']);
+Route::get('/competiciones', [CompetitionController::class, 'index'])
+    ->name('competitions');
+Route::get('/competiciones/{id}', [CompetitionController::class, 'details'])
+    ->name('competitions.details');
+Route::get('/competiciones/crear', [CompetitionController::class, 'create'])
+    ->name('competitions.create');
+Route::post('/competiciones/nuevo', [CompetitionController::class, 'store'])
+    ->name('competitions.store');
+Route::get('/competiciones/{id}/editar', [CompetitionController::class, 'edit'])
+    ->name('competitions.edit');
 
 
 Route::get('/paises', function() {
