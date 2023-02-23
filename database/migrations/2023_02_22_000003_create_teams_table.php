@@ -27,8 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $table->dropForeign('posts_country_id_foreign');
-        $table->dropForeign('posts_competition_id_foreign');
         Schema::dropIfExists('failed_jobs');
     }
 };

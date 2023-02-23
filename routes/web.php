@@ -13,15 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/competiciones', function () {
-    return view('competiciones');
-});
-Route::get('/competiciones/crear', function () {
-    return 'Crear competición';
-});
-Route::get('/competiciones/{id}/editar', function ($id) {
-    return 'Editar competición '.$id;
-});
+Route::get('/competiciones', [CompetitionController::class, 'index']);
+Route::get('/competiciones/{id}', [CompetitionController::class, 'show']);
+Route::get('/competiciones/crear', [CompetitionController::class, 'create']);
+Route::get('/competiciones/{id}/editar', [CompetitionController::class, 'edit']);
 
 
 Route::get('/paises', function() {

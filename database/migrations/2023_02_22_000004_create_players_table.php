@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('number');
+            $table->integer('dorsal');
             $table->string('nationality');
             $table->foreignId('team_id')->constrained();
             $table->string('position');
@@ -27,7 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $table->dropForeign('posts_team_id_foreign');
         Schema::dropIfExists('players');
     }
 };
