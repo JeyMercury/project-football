@@ -10,9 +10,13 @@ class Competition extends Model
     use HasFactory;
 
     /**
-     * The table associated with the model.
+     * The attributes that are mass assignable.
      *
-     * @var string
+     * @var array<int, string>
      */
-    protected $table = 'competitions';
+    protected $fillable = [
+        'name',
+        'host_country',
+        'n_participants_teams',
+    ];
 }

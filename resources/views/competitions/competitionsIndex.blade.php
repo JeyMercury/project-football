@@ -20,12 +20,12 @@
                         <tbody>
                             <tr>
                                 <td>{{ $competition->name }}</td>
-                                <td><a href="{{ route('competitions.details', ['id' => $competition->id]) }}">Ver detalles</a>   -   -<td>
+                                <td><a href="{{ route('competitions.details', ['id' => $competition->id]) }}">Ver detalles</a>   <a href="{{ route('competitions.create') }}">Crear competición</a>   -<td>
                     @empty
                                 <td>No hay competiciones registradas.</td>
+                    @endforelse
                             </tr>
                         </tbody>
-                    @endforelse
                 </table>
             </div>
         </section>
