@@ -54,9 +54,13 @@ class CompetitionController extends Controller
         return redirect()->route('competitions');
     }
 
-    public function edit() {
+    public function edit(Competition $competition) {
 
-        return 'Editar competición '.$id;
+        $competition = Competition::findOrFail($competition);
+
+        return view('competitions/competitionsEdit',[
+            'competition' => $competition,
+        ]);
     }
 }
 

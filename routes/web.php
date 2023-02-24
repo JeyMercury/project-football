@@ -23,7 +23,7 @@ Route::get('/competiciones/crear', [CompetitionController::class, 'create'])
     ->name('competitions.create');
 Route::post('/competiciones', [CompetitionController::class, 'store'])
     ->name('competitions.store');
-Route::get('/competiciones/{id}/editar', [CompetitionController::class, 'edit'])
+Route::get('/competiciones/{competition}/editar', [CompetitionController::class, 'edit'])
     ->name('competitions.edit');
 
 
@@ -66,6 +66,6 @@ Route::get('/jugadores', function() {
 Route::get('/jugadores/crear', function () {
     return 'Añadir jugador';
 });
-Route::get('/jugadores/{id}/editar', function () {
+Route::get('/jugadores/{id}/editar', function ($id) {
     return 'Editar jugador '.$id;
 });
