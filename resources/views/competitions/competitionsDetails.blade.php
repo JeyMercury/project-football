@@ -3,7 +3,7 @@
     <body class="antialiased">
         <section>
             <!--for demo wrap-->
-            <h1>Detalles de la competición</br>{{ $competition->name }}</h1>
+            <h1>Detalles de la competición<br><b>{{ $competition->name }}</b></h1>
             
             <p>País anfitrión: <b>{{ $competition->host_country }}</b></p>
             <p>Número de equipos participantes: <b>{{ $competition->n_participants_teams }}</b></p>

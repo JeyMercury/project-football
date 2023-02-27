@@ -5,7 +5,7 @@
             <!--for demo wrap-->
             <h1>Crear competición</h1>
 
-            <!-- @if ($errors->any())
+            @if ($errors->any())
             <div class="alert alert-danger">
                 <h3 style='color:red;'>Hay errores en el formulario:</h3>
                 <ul>
@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <br><br>
-            @endif -->
+            @endif
 
             
             <form method="POST" action="{{ url('competiciones') }}">

@@ -3,9 +3,9 @@
     <body class="antialiased">
         <section>
             <!--for demo wrap-->
-            <h1>Crear competición</h1>
+            <h1>Editar competición</h1>
 
-            <!-- @if ($errors->any())
+            @if ($errors->any())
             <div class="alert alert-danger">
                 <h3 style='color:red;'>Hay errores en el formulario:</h3>
                 <ul>
@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <br><br>
-            @endif -->
+            @endif
 
             
             <form method="POST" action="{{ url('competiciones') }}">
@@ -23,18 +23,15 @@
 
                 <label for="name">Nombre de la Competición:</label>
                 <input type="text" name="name" value="{{ old('name', $competition->name) }}">
-                @if ($errors->has('name'))
-                    <label style='color:red;'>{{ $errors->first('name') }}</label>
-                @endif
                 <br><br>
                 <label for="host_country">País anfitrión:</label>
-                <input type="text" name="host_country" value="{{ old('host_country') }}">
+                <input type="text" name="host_country" value="{{ old('host_country', $competition->host_country) }}">
                 <br><br>
                 <label for="n_participants_teams">Número de equipos participantes:</label>
-                <input type="number" name="n_participants_teams">
+                <input type="number" name="n_participants_teams" value="{{ old('n_participants_teams', $competition->n_participants_teams) }}">
                 <br><br>
             
-                <button type="submit">Crear competición</button>
+                <button type="submit">Actualizar competición</button>
             </form>
             
             <p>

@@ -9,14 +9,13 @@ class Competition extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
         'host_country',
         'n_participants_teams',
+    ];
+
+    protected $cast = [
+        'n_participants_teams' => 'int',
     ];
 }

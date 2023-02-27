@@ -9,7 +9,7 @@ class CompetitionController extends Controller
 {
     public function index() {
 
-        $competitions = Competition::get();
+        $competitions = Competition::all();
 
         $title = 'Competiciones';
 
@@ -19,9 +19,9 @@ class CompetitionController extends Controller
         ]);
     }
 
-    public function details($id) {
+    public function details(Competition $competition) {
 
-        $competition = Competition::findOrFail($id);
+        // $competition = Competition::findOrFail($competition->id);
 
         return view('competitions/competitionsDetails', [
             'competition' => $competition,
@@ -30,7 +30,7 @@ class CompetitionController extends Controller
 
     public function create() {
 
-        return view('competitions.competitionsCreate');
+        return view('competitions/competitionsCreate');
     }
 
     public function store() {
@@ -56,12 +56,27 @@ class CompetitionController extends Controller
 
     public function edit(Competition $competition) {
 
-        $competition = Competition::findOrFail($competition);
-
         return view('competitions/competitionsEdit',[
             'competition' => $competition,
         ]);
     }
-}
 
-    
+    public function update(Competition $competition) {
+        $data = request()->validate([
+            'name' => ['required', 'unique:competitions,name'],
+            'host_country' => '',
+            'n_participants_teams' => '',
+        ]);
+
+        $competition->update($data);
+
+        return redirect()->route('competitions/competitionsDetails', ['competition' => $competition]);
+    }
+
+    function destroy(Competition $competition) {
+
+        $competition->delete();
+
+        return redirect()->route('competitions');
+    }
+}
