@@ -11,7 +11,7 @@ class TeamController extends Controller
 
         $team = Team::all();
 
-        $title = 'Paises';
+        $title = 'Equipos';
 
         return view('teams/teamsIndex', [
             'teams' => $team,
@@ -38,8 +38,8 @@ class TeamController extends Controller
         $data = request()->validate([
             'name' => ['required', 'unique:teams,name'],
             'diminutive' => '',
-            'continent' => '',
-            'first_language' => '',
+            'coach' => '',
+            'country_id' => '',
         ], [
             'name.required' => 'El nombre es obligatorio'
         ]);
@@ -47,8 +47,8 @@ class TeamController extends Controller
         Team::create([
             'name' => $data['name'],
             'diminutive' => $data['diminutive'],
-            'continent' => $data['continent'],
-            'first_language' => '',
+            'coach' => $data['coach'],
+            'country_id' => $data['country_id'],
         ]);
 
         return redirect()->route('teams');

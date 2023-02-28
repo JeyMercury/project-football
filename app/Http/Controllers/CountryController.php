@@ -48,7 +48,7 @@ class CountryController extends Controller
             'name' => $data['name'],
             'diminutive' => $data['diminutive'],
             'continent' => $data['continent'],
-            'first_language' => '',
+            'first_language' => $data['first_language'],
         ]);
 
         return redirect()->route('countries');
