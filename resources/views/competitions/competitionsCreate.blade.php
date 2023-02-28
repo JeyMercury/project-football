@@ -19,7 +19,7 @@
 
             
             <form method="POST" action="{{ url('competiciones') }}">
-                {!! csrf_field() !!}
+                {{ csrf_field() }}
 
                 <label for="name">Nombre de la Competición:</label>
                 <input type="text" name="name" value="{{ old('name') }}">

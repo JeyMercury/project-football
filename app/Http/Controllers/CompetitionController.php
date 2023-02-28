@@ -62,15 +62,16 @@ class CompetitionController extends Controller
     }
 
     public function update(Competition $competition) {
+        
         $data = request()->validate([
-            'name' => ['required', 'unique:competitions,name'],
+            'name' => 'required',
             'host_country' => '',
             'n_participants_teams' => '',
         ]);
 
         $competition->update($data);
 
-        return redirect()->route('competitions/competitionsDetails', ['competition' => $competition]);
+        return redirect()->route('competitions.details', ['competition' => $competition]);
     }
 
     function destroy(Competition $competition) {

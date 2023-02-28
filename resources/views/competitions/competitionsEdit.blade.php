@@ -18,8 +18,9 @@
             @endif
 
             
-            <form method="POST" action="{{ url('competiciones') }}">
-                {!! csrf_field() !!}
+            <form method="POST" action="{{ route('competitions.update', $competition) }}">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
 
                 <label for="name">Nombre de la Competición:</label>
                 <input type="text" name="name" value="{{ old('name', $competition->name) }}">

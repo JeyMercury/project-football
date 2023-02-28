@@ -17,10 +17,10 @@ use App\Http\Controllers\CompetitionController;
 
 Route::get('/competiciones', [CompetitionController::class, 'index'])
     ->name('competitions');
-Route::get('/competiciones/{competition}', [CompetitionController::class, 'details'])
-    ->name('competitions.details');
 Route::get('/competiciones/crear', [CompetitionController::class, 'create'])
     ->name('competitions.create');
+Route::get('/competiciones/{competition}', [CompetitionController::class, 'details'])
+    ->name('competitions.details');
 Route::post('/competiciones', [CompetitionController::class, 'store'])
     ->name('competitions.store');
 Route::get('/competiciones/{competition}/editar', [CompetitionController::class, 'edit'])
@@ -31,18 +31,20 @@ Route::delete('/competiciones/{competition}', [CompetitionController::class, 'de
     ->name('competitions.destroy');
 
 
-Route::get('/paises', function() {
-    return 'Países participantes';
-});
-Route::get('/paises/crear', function () {
-    return 'Añadir país';
-});
-Route::get('/paises/{id}/editar', function ($id) {
-    return 'Editar país '.$id;
-});
-Route::get('/paises/{id}', function ($id) {
-    return 'Detalles país '.$id;
-});
+Route::get('/paises', [CountryController::class, 'index'])
+    ->name('countries');
+Route::get('/paises/crear', [CountryController::class, 'create'])
+    ->name('countries.create');
+Route::get('/paises/{pais}', [CountryController::class, 'details'])
+    ->name('countries.details');
+Route::post('/paises', [CountryController::class, 'store'])
+    ->name('countries.store');
+Route::get('/paises/{pais}/editar', [CountryController::class, 'edit'])
+    ->name('countries.edit');
+Route::put('/countries/{country}', [CountryController::class, 'update'])
+    ->name('countries.update');
+Route::delete('/paises/{country}', [CountryController::class, 'destroy'])
+    ->name('countries.destroy');
 
 
 Route::get('/equipos', function() {
