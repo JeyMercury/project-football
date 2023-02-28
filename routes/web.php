@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,18 +49,20 @@ Route::put('/countries/{country}', [CountryController::class, 'update'])
 //     ->name('countries.destroy');
 
 
-Route::get('/equipos', function() {
-    return 'Equipos participantes';
-});
-Route::get('/equipos/crear', function () {
-    return 'Crear equipo';
-});
-Route::get('/equipos/{id}/editar', function ($id) {
-    return 'Editar equipo '.$id;
-});
-Route::get('/equipos/{id}', function ($id) {
-    return 'Detalles equipo '.$id;
-});
+Route::get('/equipos', [TeamController::class, 'index'])
+    ->name('equipos');
+Route::get('/equipos/crear', [TeamController::class, 'create'])
+    ->name('teams.create');
+Route::get('/equipos/{id}/editar', [TeamController::class, 'details'])
+    ->name('teams.details');
+Route::post('/equipos/{id}', [TeamController::class, 'store'])
+    ->name('teams.store');
+Route::get('equipos/{team}/editar', [TeamController::class, 'edit'])
+    ->name('teams.edit');
+Route::put('/teams/{team}', [TeamController::class, 'update'])
+    ->name('teams.update');
+Route::delete('/equipos/{team}', [TeamController::class, 'destroy'])
+    ->name('teams.destroy');
 
 
 Route::get('/competiciones/organigrama', function() {
