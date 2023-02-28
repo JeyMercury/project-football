@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,16 +36,16 @@ Route::get('/paises', [CountryController::class, 'index'])
     ->name('countries');
 Route::get('/paises/crear', [CountryController::class, 'create'])
     ->name('countries.create');
-Route::get('/paises/{pais}', [CountryController::class, 'details'])
+Route::get('/paises/{country}', [CountryController::class, 'details'])
     ->name('countries.details');
 Route::post('/paises', [CountryController::class, 'store'])
     ->name('countries.store');
-Route::get('/paises/{pais}/editar', [CountryController::class, 'edit'])
+Route::get('/paises/{country}/editar', [CountryController::class, 'edit'])
     ->name('countries.edit');
 Route::put('/countries/{country}', [CountryController::class, 'update'])
     ->name('countries.update');
-Route::delete('/paises/{country}', [CountryController::class, 'destroy'])
-    ->name('countries.destroy');
+// Route::delete('/paises/{country}', [CountryController::class, 'destroy'])
+//     ->name('countries.destroy');
 
 
 Route::get('/equipos', function() {

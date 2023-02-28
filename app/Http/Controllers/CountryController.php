@@ -75,10 +75,10 @@ class CountryController extends Controller
         return redirect()->route('countries.details', ['country' => $country]);
     }
 
-    function destroy(Country $country) {
+    // function destroy(Country $country) {
 
-        $country->delete();
+    //     $country->delete();
 
-        return redirect()->route('countries');
-    }
+    //     return redirect()->route('countries');
+    // }
 }
