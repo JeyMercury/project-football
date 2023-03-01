@@ -25,6 +25,6 @@ class Team extends Model
      */
     public function competitions()
     {
-        return $this->belongsToMany(Competition::class);
+        return $this->belongsToMany(Competition::class, 'competition_team');
     }
 }

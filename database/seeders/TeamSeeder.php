@@ -18,14 +18,12 @@ class TeamSeeder extends Seeder
             'diminutive' => 'ATM',
             'coach' => 'Diego Simeone',
             'country_id' => 2,
-            'competition_id' => 1,
         ]);
         DB::table('teams')->insert([
             'name' => 'Chelsea',
             'diminutive' => 'CHE',
             'coach' => 'Graham Potter',
             'country_id' => 1,
-            'competition_id' => 1,
         ]);
     }
 }
