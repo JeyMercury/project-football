@@ -10,19 +10,19 @@ class PlayerController extends Controller
 {
     public function index() {
 
-        $player = Player::all();
+        $players = Player::all();
 
         $title = 'Jugadores';
 
         return view('players/playersIndex', [
-            'player' => $player,
+            'players' => $players,
             'title' => $title,
         ]);
     }
 
     public function details(Player $player) {
 
-        $team = Player::where('id', $player->team_id)->first();
+        $team = Team::where('id', $player->team_id)->first();
 
         return view('players/playersDetails', [
             'player' => $player,
@@ -53,7 +53,7 @@ class PlayerController extends Controller
             'team_id.required' => 'El equipo es obligatorio'
         ]);
 
-        Team::create([
+        Player::create([
             'name' => $data['name'],
             'dorsal' => $data['dorsal'],
             'nationality' => $data['nationality'],

@@ -18,4 +18,12 @@ class Competition extends Model
     protected $cast = [
         'n_participants_teams' => 'int',
     ];
+
+    /**
+     * The teams that belong to the competition.
+     */
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class);
+    }
 }

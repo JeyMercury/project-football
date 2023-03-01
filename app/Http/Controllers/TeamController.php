@@ -11,12 +11,12 @@ class TeamController extends Controller
 {
     public function index() {
 
-        $team = Team::all();
+        $teams = Team::all();
 
         $title = 'Equipos';
 
         return view('teams/teamsIndex', [
-            'teams' => $team,
+            'teams' => $teams,
             'title' => $title,
         ]);
     }
@@ -24,7 +24,7 @@ class TeamController extends Controller
     public function details(Team $team) {
 
         $country = Country::where('id', $team->country_id)->first();
-        $competitions = Competition::where('id', $team->competition_id)->get();
+        $competitions = Team::where('id', $team->id)->competitions()->orderBy('name')->get();
 
         return view('teams/teamsDetails', [
             'team' => $team,

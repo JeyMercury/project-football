@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('diminutive')->unique();
-            $table->string('coach');
+            $table->string('name', 45)->unique();
+            $table->string('diminutive', 5)->unique();
+            $table->string('coach', 45);
             $table->foreignId('country_id')->constrained();
             $table->foreignId('competition_id')->constrained();
             $table->timestamps();

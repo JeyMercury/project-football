@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('host_country')->nullable();
+            $table->string('name', 45)->unique();
+            $table->string('host_country', 45)->nullable();
             $table->integer('n_participants_teams')->nullable();
             $table->timestamps();
         });

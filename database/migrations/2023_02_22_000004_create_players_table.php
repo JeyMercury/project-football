@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 50);
             $table->integer('dorsal');
-            $table->string('nationality');
+            $table->string('nationality', 25);
             $table->foreignId('team_id')->constrained();
-            $table->string('position');
+            $table->string('position', 25);
             $table->timestamps();
         });
     }

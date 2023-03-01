@@ -14,11 +14,17 @@ class Team extends Model
         'diminutive',
         'coach',
         'country_id',
-        'competition_id',
     ];
 
     protected $cast = [
         'country_id' => 'int',
-        'competition_id' => 'int',
     ];
+
+    /**
+     * The competitions that belong to the team.
+     */
+    public function competitions()
+    {
+        return $this->belongsToMany(Competition::class);
+    }
 }

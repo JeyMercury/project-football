@@ -35,7 +35,7 @@
                 <br><br>
                 <label for="team_id">Equipo perteneciente:</label>
                 <select name="team_id" value="{{ old('team_id', $player->team_id) }}">
-                    <option value="" disabled>Selecciona Equipo</option>
+                    <option value="{{ old('team_id', $player->team_id) }}" disabled>Selecciona Equipo</option>
                     @foreach ($teams as $team)
                         <option value="{{ $team->id }}">{{ $team->name }}</option>
                     @endforeach

@@ -7,12 +7,8 @@
             
             <p>Dorsal: <b>{{ $player->dorsal }}</b></p>
             <p>Nacionalidad: <b>{{ $player->nationality }}</b></p>
-            <p>Equipo perteneciente: <b>{{ $player->team_id }}</b></p>
-                @foreach ($teams as $team)
-                <b>{{ $team->name }}</b>
-                @endforeach
-            </p>
-            <p>Posición:
+            <p>Equipo perteneciente: <b>{{ $team->name }}</b></p>
+            <p>Posición: <b>{{ $player->position }}</b></p>
                 
             <p>
                 <a href="{{ url('/jugadores') }}">&lt;&lt; Volver</a>
