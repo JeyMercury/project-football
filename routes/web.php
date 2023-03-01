@@ -5,6 +5,7 @@ use App\Http\Controllers;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\PlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,9 +73,15 @@ Route::get('/competiciones/organigrama', function() {
 
 Route::get('/jugadores', [PlayerController::class, 'index'])
     ->name('players');
-Route::get('/jugadores/crear', function () {
-    return 'Añadir jugador';
-});
-Route::get('/jugadores/{id}/editar', function ($id) {
-    return 'Editar jugador '.$id;
-});
+Route::get('/jugadores/crear', [PlayerController::class, 'create'])
+    ->name('players.create');
+Route::get('/jugadores/{player}', [PlayerController::class, 'details'])
+    ->name('players.details');
+Route::post('/jugadores', [PlayerController::class, 'store'])
+    ->name('players.store');
+Route::get('jugadores/{player}/editar', [PlayerController::class, 'edit'])
+    ->name('players.edit');
+Route::put('/players/{player}', [PlayerController::class, 'update'])
+    ->name('players.update');
+Route::delete('/jugadores/{player}', [PlayerController::class, 'destroy'])
+    ->name('players.destroy');
