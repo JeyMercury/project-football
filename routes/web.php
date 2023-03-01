@@ -50,12 +50,12 @@ Route::put('/countries/{country}', [CountryController::class, 'update'])
 
 
 Route::get('/equipos', [TeamController::class, 'index'])
-    ->name('equipos');
+    ->name('teams');
 Route::get('/equipos/crear', [TeamController::class, 'create'])
     ->name('teams.create');
-Route::get('/equipos/{id}/editar', [TeamController::class, 'details'])
+Route::get('/equipos/{team}', [TeamController::class, 'details'])
     ->name('teams.details');
-Route::post('/equipos/{id}', [TeamController::class, 'store'])
+Route::post('/equipos', [TeamController::class, 'store'])
     ->name('teams.store');
 Route::get('equipos/{team}/editar', [TeamController::class, 'edit'])
     ->name('teams.edit');
@@ -70,9 +70,8 @@ Route::get('/competiciones/organigrama', function() {
 });
 
 
-Route::get('/jugadores', function() {
-    return 'Jugadores';
-});
+Route::get('/jugadores', [PlayerController::class, 'index'])
+    ->name('players');
 Route::get('/jugadores/crear', function () {
     return 'Añadir jugador';
 });

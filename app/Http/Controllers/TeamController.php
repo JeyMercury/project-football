@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Competition;
 use App\Models\Team;
+use App\Models\Country;
+use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
@@ -21,25 +23,36 @@ class TeamController extends Controller
 
     public function details(Team $team) {
 
+        $country = Country::where('id', $team->country_id)->first();
+        $competitions = Competition::where('id', $team->competition_id)->get();
+
         return view('teams/teamsDetails', [
             'team' => $team,
+            'country' => $country,
+            'competitions' => $competitions,
         ]);
     }
 
-    public function create() {
+    public function create(Team $team) {
 
-        return view('teams/teamsCreate');
+        $countries = Country::orderBy('name', 'asc')->get();
+        $competitions = Competition::orderBy('name', 'asc')->get();
+
+        return view('teams/teamsCreate', [
+            'team' => $team,
+            'countries' => $countries,
+            'competitions' => $competitions
+        ]);
     }
 
     public function store() {
-
-        // return redirect('usuarios/crear')->withInput();
 
         $data = request()->validate([
             'name' => ['required', 'unique:teams,name'],
             'diminutive' => '',
             'coach' => '',
             'country_id' => '',
+            'competition_id' => '',
         ], [
             'name.required' => 'El nombre es obligatorio'
         ]);
@@ -49,6 +62,7 @@ class TeamController extends Controller
             'diminutive' => $data['diminutive'],
             'coach' => $data['coach'],
             'country_id' => $data['country_id'],
+            'competition_id' => $data['competition_id'],
         ]);
 
         return redirect()->route('teams');
@@ -56,8 +70,13 @@ class TeamController extends Controller
 
     public function edit(Team $team) {
 
+        $countries = Country::orderBy('name', 'asc')->get();
+        $competitions = Competition::orderBy('name', 'asc')->get();
+
         return view('teams/teamsEdit',[
             'team' => $team,
+            'countries' => $countries,
+            'competitions' => $competitions,
         ]);
     }
 
@@ -68,6 +87,7 @@ class TeamController extends Controller
             'diminutive' => '',
             'coach' => '',
             'country_id' => '',
+            'competition_id' => '',
         ]);
 
         $team->update($data);

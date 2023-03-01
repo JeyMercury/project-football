@@ -5,20 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class Player extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'diminutive',
-        'coach',
-        'country_id',
-        'competition_id',
+        'dorsal',
+        'nationality',
+        'team_id',
+        'position',
     ];
 
     protected $cast = [
-        'country_id' => 'int',
-        'competition_id' => 'int',
+        'dorsal' => 'int',
+        'team_id' => 'int',
     ];
 }

@@ -3,13 +3,19 @@
     <body class="antialiased">
         <section>
             <!--for demo wrap-->
-            <h1>Detalles de la competición<br><b>{{ $competition->name }}</b></h1>
+            <h1>Detalles del equipo<br><b>{{ $team->name }}</b></h1>
             
-            <p>País anfitrión: <b>{{ $competition->host_country }}</b></p>
-            <p>Número de equipos participantes: <b>{{ $competition->n_participants_teams }}</b></p>
+            <p>Diminutivo: <b>{{ $team->diminutive }}</b></p>
+            <p>Entrenador: <b>{{ $team->coach }}</b></p>
+            <p>País perteneciente: <b>{{ $country->name }}</b></p>
+            <p>Competiciones en las que participa:
+                @foreach ($competitions as $competition)
+                    <b>{{ $competition->name }}</b>
+                @endforeach
+            </p>
                 
             <p>
-                <a href="{{ url('/competiciones') }}">&lt;&lt; Volver</a>
+                <a href="{{ url('/equipos') }}">&lt;&lt; Volver</a>
             </p>
         </section>
     </body>

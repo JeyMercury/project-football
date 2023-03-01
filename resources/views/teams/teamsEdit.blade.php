@@ -32,10 +32,18 @@
                 <input type="text" name="coach" value="{{ old('coach', $team->coach) }}">
                 <br><br>
                 <label for="country_id">País perteneciente:</label>
-                <select name="contry_id" value="{{ old('contry_id', $team->country_id) }}">
+                <select name="country_id" value="{{ old('country_id', $team->country_id) }}">
                     <option value="" disabled>Selecciona País</option>
                     @foreach ($countries as $country)
                         <option value="{{ $country->id }}">{{ $country->name }}</option>
+                    @endforeach
+                </select>
+                <br><br>
+                <label for="competition_id">Competiciones en las que participa:</label>
+                <select name="competition_id" value="{{ old('competition_id', $team->competition_id) }}" multiple>
+                    <option value="" disabled>Selecciona Competiciones</option>
+                    @foreach ($competitions as $competition)
+                        <option value="{{ $competition->id }}">{{ $competition->name }}</option>                        
                     @endforeach
                 </select>
                 <br><br>
