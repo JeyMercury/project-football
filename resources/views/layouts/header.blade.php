@@ -23,12 +23,12 @@
             <nav class="nav">
                 <ul class="main-nav">
 
-                    <li class="main-nav-item active">
+                    {{-- <li class="main-nav-item active">
                         <a href="/inicio" class="main-nav-link">
                             <i class="icon icon-pen"></i>
                             <span>Inicio</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li class="main-nav-item">
                         <a href="/competiciones" class="main-nav-link">

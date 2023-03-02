@@ -25,9 +25,5 @@ class CompetitionTeamSeeder extends Seeder
             'team_id' => 2,
             'competition_id' => 1,
         ]);
-        DB::table('competition_team')->insert([
-            'team_id' => 2,
-            'competition_id' => 2,
-        ]);
     }
 }

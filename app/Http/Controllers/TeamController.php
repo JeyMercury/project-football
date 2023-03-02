@@ -24,7 +24,7 @@ class TeamController extends Controller
     public function details(Team $team) {
 
         $country = Country::where('id', $team->country_id)->first();
-        $competitions = Competition::where('id', $team->competition_id)->get();
+        $competitions = $team->competitions()->get();
 
         return view('teams/teamsDetails', [
             'team' => $team,

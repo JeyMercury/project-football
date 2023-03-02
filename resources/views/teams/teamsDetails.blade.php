@@ -1,18 +1,16 @@
 @include('layouts.header')
 
     <body class="antialiased">
-        <section>
+        <section class="content">
             <!--for demo wrap-->
             <h1>Detalles del equipo<br><b>{{ $team->name }}</b></h1>
+            <br>
             
             <p>Diminutivo: <b>{{ $team->diminutive }}</b></p>
             <p>Entrenador: <b>{{ $team->coach }}</b></p>
             <p>País perteneciente: <b>{{ $country->name }}</b></p>
-            <p>Competiciones en las que participa:
-                @foreach ($competitions as $competition)
-                    <b>{{ $competition->name }}</b>
-                @endforeach
-            </p>
+            <p>Competiciones en las que participa: <b>{{ $competitions->pluck('name')->implode(', ') }}</b></p>
+            <br>
                 
             <p>
                 <a href="{{ url('/equipos') }}">&lt;&lt; Volver</a>

@@ -4,6 +4,7 @@
         <section>
             <!--for demo wrap-->
             <h1>Editar país</h1>
+            <br>
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -37,6 +38,7 @@
             
                 <button type="submit">Actualizar país</button>
             </form>
+            <br>
             
             <p>
                 <a href="{{ url('/paises') }}">&lt;&lt; Volver</a>

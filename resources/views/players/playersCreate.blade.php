@@ -4,6 +4,7 @@
         <section>
             <!--for demo wrap-->
             <h1>Registrar Jugador</h1>
+            <br>
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -47,6 +48,7 @@
             
                 <button type="submit">Registrar Jugador</button>
             </form>
+            <br>
             
             <p>
                 <a href="{{ url('/jugadores') }}">&lt;&lt; Volver</a>

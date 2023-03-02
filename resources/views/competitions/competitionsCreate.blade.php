@@ -4,6 +4,7 @@
         <section>
             <!--for demo wrap-->
             <h1>Crear competición</h1>
+            <br>
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -36,6 +37,7 @@
             
                 <button type="submit">Crear competición</button>
             </form>
+            <br>
             
             <p>
                 <a href="{{ url('/competiciones') }}">&lt;&lt; Volver</a>

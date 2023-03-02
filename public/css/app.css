@@ -73,6 +73,22 @@ span{
   font-size: 24px;
 }
 
+.createButton{
+  padding: 15px 32px;
+  border: none;
+  background-color: lightgrey;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.createButton:hover:not(.active) {
+  background-color: rgb(160, 160, 160);
+}
+
+.createSection{
+  text-align: left;
+}
+
 /* demo styles */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
@@ -86,6 +102,7 @@ body{
 section{
   min-height: 75vh;
   margin: 30px;
+  text-align: center;
 }
 
 

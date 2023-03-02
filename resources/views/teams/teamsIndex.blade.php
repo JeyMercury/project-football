@@ -5,7 +5,7 @@
 
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <h1 class="pb-1">{{ $title }}</h1>
-                <p>
+                <p class="createSection">
                     <a href="{{ route('teams.create') }}" class="btn btn-link"><button class="button createButton">Crear Equipo</button></a>
                 </p>
             </div>

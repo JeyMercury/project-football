@@ -19,9 +19,9 @@ class CompetitionSeeder extends Seeder
             'n_participants_teams' => 32,
         ]);
         DB::table('competitions')->insert([
-            'name' => 'Copa Mundial',
-            'host_country' => 'Argentina',
-            'n_participants_teams' => 48,
+            'name' => 'LaLiga',
+            'host_country' => 'España',
+            'n_participants_teams' => 20,
         ]);
     }
 }

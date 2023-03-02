@@ -5,7 +5,7 @@
 
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <h1 class="pb-1">{{ $title }}</h1>
-                <p>
+                <p class="createSection">
                     <a href="{{ route('competitions.create') }}" class="btn btn-link"><button class="button createButton">Crear Competición</button></a>
                 </p>
             </div>

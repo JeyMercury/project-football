@@ -4,6 +4,7 @@
         <section>
             <!--for demo wrap-->
             <h1>Crear equipo</h1>
+            <br>
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -43,7 +44,7 @@
                 <br><br>
                 <label for='competition_id'>Competiciones en las que participa:</label>
                 <select name="competition_id" value="{{ old('competition_id', $team->competition_id) }}" multiple>
-                    <option value="" disabled>Selecciona Competición</option>
+                    <option value="" disabled>Selecciona Competiciones</option>
                     @foreach ($competitions as $competition)
                         <option value="{{ $competition->id }}">{{ $competition->name }}</option>                        
                     @endforeach
@@ -52,6 +53,7 @@
             
                 <button type="submit">Crear equipo</button>
             </form>
+            <br>
             
             <p>
                 <a href="{{ url('/equipos') }}">&lt;&lt; Volver</a>

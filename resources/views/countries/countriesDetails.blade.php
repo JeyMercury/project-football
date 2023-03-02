@@ -4,10 +4,12 @@
         <section>
             <!--for demo wrap-->
             <h1>Detalles del País<br><b>{{ $country->name }}</b></h1>
+            <br>
             
             <p>Diminutivo: <b>{{ $country->diminutive }}</b></p>
             <p>Continente perteneciente: <b>{{ $country->continent }}</b></p>
             <p>Primer idioma: <b>{{ $country->first_language }}</b></p>
+            <br>
                 
             <p>
                 <a href="{{ url('/paises') }}">&lt;&lt; Volver</a>
