@@ -25,5 +25,17 @@ class CountrySeeder extends Seeder
             'continent' => 'Europa',
             'first_language' => 'Español'
         ]);
+        DB::table('countries')->insert([
+            'name' => 'Alemania',
+            'diminutive' => 'GE',
+            'continent' => 'Europa',
+            'first_language' => 'Alemán'
+        ]);
+        DB::table('countries')->insert([
+            'name' => 'Italia',
+            'diminutive' => 'IT',
+            'continent' => 'Europa',
+            'first_language' => 'Italiano'
+        ]);
     }
 }

@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('competition_team', function (Blueprint $table) {
             $table->id();
 
+            // $table->foreignId('competition_id')->constrained();
+            // $table->foreignId('team_id')->constrained();
+
             $table->unsignedBigInteger('team_id');
             $table->unsignedBigInteger('competition_id');
 

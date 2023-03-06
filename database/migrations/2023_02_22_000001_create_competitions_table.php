@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 45)->unique();
             $table->string('host_country', 45)->nullable();
-            $table->integer('n_participants_teams')->nullable();
+            $table->json('teams')->nullable();
             $table->timestamps();
         });
     }

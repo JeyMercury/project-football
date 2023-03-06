@@ -19,7 +19,7 @@
             @endif
 
             
-            <form method="POST" action="{{ url('equipos') }}">
+            <form class="fillable" method="POST" action="{{ url('equipos') }}">
                 {{ csrf_field() }}
 
                 <label for="name">Nombre del equipo:</label>
@@ -44,9 +44,17 @@
                 <br><br>
                 <label for='competition_id'>Competiciones en las que participa:</label>
                 <select name="competition_id" value="{{ old('competition_id', $team->competition_id) }}" multiple>
-                    <option value="" disabled>Selecciona Competiciones</option>
+                    <option selected="true" value="" disabled>Selecciona Competiciones</option>
                     @foreach ($competitions as $competition)
                         <option value="{{ $competition->id }}">{{ $competition->name }}</option>                        
+                    @endforeach
+                </select>
+                <br><br>
+                <label for='players'>Jugadores:</label>
+                <select name="players" value="" multiple>
+                    <option value="" disabled>Selecciona Jugadores</option>
+                    @foreach ($players as $player)
+                        <option value="{{ $player->id }}">{{ $player->name }}</option>                        
                     @endforeach
                 </select>
                 <br><br>

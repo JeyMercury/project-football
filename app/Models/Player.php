@@ -21,4 +21,12 @@ class Player extends Model
         'dorsal' => 'int',
         'team_id' => 'int',
     ];
+
+    /**
+     * Get the team that owns the player.
+     */
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'player_id');
+    }
 }

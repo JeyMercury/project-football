@@ -25,5 +25,17 @@ class TeamSeeder extends Seeder
             'coach' => 'Graham Potter',
             'country_id' => 1,
         ]);
+        DB::table('teams')->insert([
+            'name' => 'Bayern de Munich',
+            'diminutive' => 'FBM',
+            'coach' => 'Julian Nagelsmann',
+            'country_id' => 3,
+        ]);
+        DB::table('teams')->insert([
+            'name' => 'Real Madrid',
+            'diminutive' => 'RMA',
+            'coach' => 'Carlo Ancelotti',
+            'country_id' => 2,
+        ]);
     }
 }

@@ -19,7 +19,7 @@
             @endif
 
             
-            <form method="POST" action="{{ route('competitions.update', $competition) }}">
+            <form class="fillable" method="POST" action="{{ route('competitions.update', $competition) }}">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
 
@@ -29,8 +29,13 @@
                 <label for="host_country">País anfitrión:</label>
                 <input type="text" name="host_country" value="{{ old('host_country', $competition->host_country) }}">
                 <br><br>
-                <label for="n_participants_teams">Número de equipos participantes:</label>
-                <input type="number" name="n_participants_teams" value="{{ old('n_participants_teams', $competition->n_participants_teams) }}">
+                <label for="teams">Equipos participantes:</label>
+                <select name="teams" value="{{ old('teams', $competition->team_id) }}" multiple>
+                    <option selected="true" value="" disabled>Selecciona Equipos</option>
+                    @foreach ($teams as $team)
+                        <option value="{{ $team->id }}">{{ $team->name }}</option>
+                    @endforeach
+                </select>
                 <br><br>
             
                 <button type="submit">Actualizar competición</button>

@@ -19,7 +19,7 @@
             @endif
 
             
-            <form method="POST" action="{{ route('players.update', $player) }}">
+            <form class="fillable" method="POST" action="{{ route('players.update', $player) }}">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
 

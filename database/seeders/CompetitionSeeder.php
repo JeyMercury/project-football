@@ -16,12 +16,18 @@ class CompetitionSeeder extends Seeder
         DB::table('competitions')->insert([
             'name' => 'Champions Leage',
             'host_country' => 'Reino Unido',
-            'n_participants_teams' => 32,
         ]);
         DB::table('competitions')->insert([
             'name' => 'LaLiga',
             'host_country' => 'España',
-            'n_participants_teams' => 20,
+        ]);
+        DB::table('competitions')->insert([
+            'name' => 'Premier Leage',
+            'host_country' => 'Reino Unido',
+        ]);
+        DB::table('competitions')->insert([
+            'name' => 'BundesLiga',
+            'host_country' => 'Alemania',
         ]);
     }
 }

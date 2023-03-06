@@ -19,7 +19,7 @@
             @endif
 
             
-            <form method="POST" action="{{ url('paises') }}">
+            <form class="fillable" method="POST" action="{{ url('paises') }}">
                 {{ csrf_field() }}
 
                 <label for="name">Nombre del país:</label>

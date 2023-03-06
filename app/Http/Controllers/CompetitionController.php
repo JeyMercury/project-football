@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Competition;
+use App\Models\Team;
 
 class CompetitionController extends Controller
 {
@@ -23,24 +24,33 @@ class CompetitionController extends Controller
 
         // $competition = Competition::findOrFail($competition->id);
 
+        $teams = $competition->teams()->get();
+
         return view('competitions/competitionsDetails', [
             'competition' => $competition,
+            'teams' => $teams,
         ]);
     }
 
-    public function create() {
+    public function create(Competition $competition) {
 
-        return view('competitions/competitionsCreate');
+        $teams=Team::orderBy('name', 'asc')->get();
+
+        return view('competitions/competitionsCreate', [
+            'competition' => $competition,
+            // 'teams' => $teams,
+        ]);
     }
 
-    public function store() {
+    public function store(Request $request, Competition $competition) {
 
         // return redirect('usuarios/crear')->withInput();
+        $competition->teams()->syncWithoutDetaching($request->teams);
 
         $data = request()->validate([
             'name' => ['required', 'unique:competitions,name'],
             'host_country' => '',
-            'n_participants_teams' => '',
+            // 'teams' => '',
         ], [
             'name.required' => 'El nombre es obligatorio'
         ]);
@@ -48,26 +58,31 @@ class CompetitionController extends Controller
         Competition::create([
             'name' => $data['name'],
             'host_country' => $data['host_country'],
-            'n_participants_teams' => $data['n_participants_teams'],
+            // 'teams' => $data['teams'],
         ]);
+
 
         return redirect()->route('competitions');
     }
 
     public function edit(Competition $competition) {
 
+        $teams = Team::orderBy('name', 'asc')->get();
+
         return view('competitions/competitionsEdit',[
             'competition' => $competition,
+            'teams' => $teams,
         ]);
     }
 
-    public function update(Competition $competition) {
+    public function update(Request $request, Competition $competition) {
         
         $data = request()->validate([
             'name' => 'required',
             'host_country' => '',
-            'n_participants_teams' => '',
         ]);
+        
+        $competition->teams()->syncWithoutDetaching($request->teams);
 
         $competition->update($data);
 

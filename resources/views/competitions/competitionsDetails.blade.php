@@ -7,7 +7,7 @@
             <br>
             
             <p>País anfitrión: <b>{{ $competition->host_country }}</b></p>
-            <p>Número de equipos participantes: <b>{{ $competition->n_participants_teams }}</b></p>
+            <p>Equipos participantes: <b>{{ $teams->pluck('name')->implode(', ') }}</b></p>
             <br>
                 
             <p>

@@ -10,6 +10,7 @@
             <p>Entrenador: <b>{{ $team->coach }}</b></p>
             <p>País perteneciente: <b>{{ $country->name }}</b></p>
             <p>Competiciones en las que participa: <b>{{ $competitions->pluck('name')->implode(', ') }}</b></p>
+            <p>Jugadores: <b>{{ $players->pluck('name')->implode(', ') }}</b></p>
             <br>
                 
             <p>

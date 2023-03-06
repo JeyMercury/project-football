@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('diminutive', 5)->unique();
             $table->string('coach', 45);
             $table->foreignId('country_id')->constrained();
+            $table->json('players')->nullable();
             $table->timestamps();
         });
     }

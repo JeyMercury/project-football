@@ -14,10 +14,12 @@ class Team extends Model
         'diminutive',
         'coach',
         'country_id',
+        'players',
     ];
 
     protected $cast = [
         'country_id' => 'int',
+        'players' => 'array',
     ];
 
     /**
@@ -25,6 +27,14 @@ class Team extends Model
      */
     public function competitions()
     {
-        return $this->belongsToMany(Competition::class, 'competition_team');
+        return $this->belongsToMany(Competition::class, 'competition_team', 'team_id', 'competition_id');
+    }
+
+    /**
+     * Get the players for the team.
+     */
+    public function players()
+    {
+        return $this->hasMany(Player::class, 'team_id');
     }
 }

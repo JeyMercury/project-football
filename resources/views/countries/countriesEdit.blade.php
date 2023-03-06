@@ -19,7 +19,7 @@
             @endif
 
             
-            <form method="POST" action="{{ route('countries.update', $country) }}">
+            <form class="fillable" method="POST" action="{{ route('countries.update', $country) }}">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
 

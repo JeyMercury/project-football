@@ -19,7 +19,7 @@
             @endif
 
             
-            <form method="POST" action="{{ url('jugadores') }}">
+            <form class="fillable" method="POST" action="{{ url('jugadores') }}">
                 {{ csrf_field() }}
 
                 <label for="name">Nombre del jugador:</label>

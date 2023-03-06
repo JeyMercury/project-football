@@ -27,5 +27,19 @@ class PlayerSeeder extends Seeder
             'team_id' => 2,
             'position' => 'Centrocampista',
         ]);
+        DB::table('players')->insert([
+            'name' => 'Manuel Neuer',
+            'dorsal' => 1,
+            'nationality' => 'Alemán',
+            'team_id' => 3,
+            'position' => 'Portero',
+        ]);
+        DB::table('players')->insert([
+            'name' => 'Karim Benzema',
+            'dorsal' => 19,
+            'nationality' => 'Francés',
+            'team_id' => 4,
+            'position' => 'Delantero',
+        ]);
     }
 }
