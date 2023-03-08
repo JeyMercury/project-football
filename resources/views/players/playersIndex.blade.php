@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <h1 class="pb-1">{{ $title }}</h1>
                 <p class="createSection">
-                    <a href="{{ route('players.create') }}" class="btn btn-link"><button class="button createButton">Registrar Jugador</button></a>
+                    <a href="{{ route('players.create') }}" class="btn btn-link"><button class="button btn-primary btn-lg">Registrar Jugador</button></a>
                 </p>
             </div>
 
@@ -33,7 +33,10 @@
                                     {{ method_field('DELETE') }}
                                     <a href="{{ route('players.details', $player) }}" class="btn btn-link"><i class="fas fa-eye"></i></a>   
                                     <a href="{{ route('players.edit', $player) }}" class="btn btn-link"><i class="fas fa-pen"></i></a>
-                                    <a href="{{ route('players.destroy', $player) }}" class="btn btn-link"><button type="submit" class="btn btn-link"><i class="fas fa-trash"></i></button></a>
+                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#playerDelete{{ $player->id }}">
+                                        <i class="fas fa-trash" title="Eliminar"></i>
+                                    </button>
+                                    @include('players.playersDelete')
                                 </form>
                             </td>
                         </tr>
@@ -41,7 +44,7 @@
                     </tbody>
                 </table>
                 @else
-                    <p>No hay Jugadores registrados.</p>
+                <p>No hay Jugadores registrados.</p>
                 @endif
             </div>
         </section>

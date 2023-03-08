@@ -31,14 +31,14 @@
                 <label for="host_country">País anfitrión:</label>
                 <input type="text" name="host_country" value="{{ old('host_country') }}">
                 <br><br>
-                <label for="teams">Equipos participantes:</label>
+                {{-- <label for="teams">Equipos participantes:</label>
                 <select name="teams" value="{{ old('teams', $competition->team_id) }}" multiple>
                     <option selected="true" value="" disabled>Selecciona Equipos</option>
                     @foreach ($teams as $team)
                         <option value="{{ $team->id }}">{{ $team->name }}</option>                        
                     @endforeach
                 </select>
-                <br><br>
+                <br><br> --}}
             
                 <button type="submit">Crear competición</button>
             </form>

@@ -7,7 +7,13 @@
             <br>
             
             <p>País anfitrión: <b>{{ $competition->host_country }}</b></p>
-            <p>Equipos participantes: <b>{{ $teams->pluck('name')->implode(', ') }}</b></p>
+            <p>Equipos participantes: 
+                @if ($teams->isNotEmpty())
+                <b>{{ $teams->pluck('name')->implode(', ') }}</b>
+                @else
+                <b>No hay equipos asignados</b>
+                @endif
+            </p>
             <br>
                 
             <p>

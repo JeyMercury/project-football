@@ -5,14 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Project Football</title>
-
+        
         {{-- Bootstrap core CSS --}}
-        {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> --}}
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        {{-- <script type="text/javascript" src="script/bootbox.min.js"></script> --}}
+        {{-- <script type="text/javascript" src="script/deleteRecords.js"></script> --}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        
         {{-- Font Awesome Icons --}}
         <script src="https://kit.fontawesome.com/bb6156e2fe.js" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     </head>
 
 <body>

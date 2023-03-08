@@ -34,11 +34,8 @@ class CompetitionController extends Controller
 
     public function create(Competition $competition) {
 
-        $teams=Team::orderBy('name', 'asc')->get();
-
         return view('competitions/competitionsCreate', [
             'competition' => $competition,
-            // 'teams' => $teams,
         ]);
     }
 
@@ -50,7 +47,6 @@ class CompetitionController extends Controller
         $data = request()->validate([
             'name' => ['required', 'unique:competitions,name'],
             'host_country' => '',
-            // 'teams' => '',
         ], [
             'name.required' => 'El nombre es obligatorio'
         ]);
@@ -58,7 +54,6 @@ class CompetitionController extends Controller
         Competition::create([
             'name' => $data['name'],
             'host_country' => $data['host_country'],
-            // 'teams' => $data['teams'],
         ]);
 
 
@@ -67,11 +62,8 @@ class CompetitionController extends Controller
 
     public function edit(Competition $competition) {
 
-        $teams = Team::orderBy('name', 'asc')->get();
-
         return view('competitions/competitionsEdit',[
             'competition' => $competition,
-            'teams' => $teams,
         ]);
     }
 

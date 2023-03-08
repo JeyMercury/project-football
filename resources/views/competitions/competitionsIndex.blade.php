@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <h1 class="pb-1">{{ $title }}</h1>
                 <p class="createSection">
-                    <a href="{{ route('competitions.create') }}" class="btn btn-link"><button class="button createButton">Crear Competición</button></a>
+                    <a href="{{ route('competitions.create') }}" class="btn btn-link"><button class="button btn-primary btn-lg">Crear Competición</button></a>
                 </p>
             </div>
 
@@ -31,24 +31,36 @@
                                 <form action="{{ route('competitions.destroy', $competition) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <a href="{{ route('competitions.details', $competition) }}" class="btn btn-link"><i class="fas fa-eye"></i></a>   
-                                    <a href="{{ route('competitions.edit', $competition) }}" class="btn btn-link"><i class="fas fa-pen"></i></a>
-                                    <a href="{{ route('competitions.destroy', $competition) }}" class="btn btn-link"><button type="submit" class="btn btn-link"><i class="fas fa-trash"></i></button></a>
+                                    <a href="{{ route('competitions.details', $competition) }}" class="btn btn-link"><i class="fas fa-eye" title="Detalles"></i></a>   
+                                    <a href="{{ route('competitions.edit', $competition) }}" class="btn btn-link"><i class="fas fa-pen" title="Editar"></i></a>
+                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#competitionDelete{{ $competition->id }}">
+                                        <i class="fas fa-trash" title="Eliminar"></i>
+                                    </button>
+                                    @include('competitions.competitionsDelete')
                                 </form>
                             </td>
                         </tr>
                     @endforeach
+
                     </tbody>
                 </table>
                 @else
                     <p>No hay Competiciones registradas.</p>
                 @endif
             </div>
+
         </section>
     </body>
 
 
 
 <script src="{{ asset('js/app.js') }}" defer></script>
+{{-- <script type="text/javascript">
+    $(document).ready(function(){
+        setTimeout(function() => {
+            $("#msj").fadeOut(1000);
+        }, 4000);
+    });
+</script> --}}
 
 @include('layouts.footer')

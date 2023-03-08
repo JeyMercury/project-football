@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <h1 class="pb-1">{{ $title }}</h1>
                 <p class="createSection">
-                    <a href="{{ route('teams.create') }}" class="btn btn-link"><button class="button createButton">Crear Equipo</button></a>
+                    <a href="{{ route('teams.create') }}" class="btn btn-link"><button class="button btn-primary btn-lg">Crear Equipo</button></a>
                 </p>
             </div>
 
@@ -33,7 +33,10 @@
                                     {{ method_field('DELETE') }}
                                     <a href="{{ route('teams.details', $team) }}" class="btn btn-link"><i class="fas fa-eye"></i></a>   
                                     <a href="{{ route('teams.edit', $team) }}" class="btn btn-link"><i class="fas fa-pen"></i></a>
-                                    <a href="{{ route('teams.destroy', $team) }}" class="btn btn-link"><button type="submit" class="btn btn-link"><i class="fas fa-trash"></i></button></a>
+                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#teamDelete{{ $team->id }}">
+                                        <i class="fas fa-trash" title="Eliminar"></i>
+                                    </button>
+                                    @include('teams.teamsDelete')
                                 </form>
                             </td>
                         </tr>

@@ -73,14 +73,6 @@ span{
   font-size: 24px;
 }
 
-.createButton{
-  padding: 15px 32px;
-  border: none;
-  background-color: lightgrey;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 .createButton:hover:not(.active) {
   background-color: rgb(160, 160, 160);
 }
@@ -114,7 +106,7 @@ section{
 /* Footer */
 .foot{
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   text-align: center;
   background-color: black;
