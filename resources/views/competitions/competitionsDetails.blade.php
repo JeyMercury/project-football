@@ -6,7 +6,13 @@
             <h1>Detalles de la competición<br><b>{{ $competition->name }}</b></h1>
             <br>
             
-            <p>País anfitrión: <b>{{ $competition->host_country }}</b></p>
+            <p>País anfitrión: 
+                @if (isset($competition->host_country))
+                <b>{{ $competition->host_country }}</b>
+                @else
+                <b>Sin asignar</b>
+                @endif
+            </p>
             <p>Equipos participantes: 
                 @if ($teams->isNotEmpty())
                 <b>{{ $teams->pluck('name')->implode(', ') }}</b>

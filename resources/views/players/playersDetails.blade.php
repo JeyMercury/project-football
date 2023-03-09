@@ -6,10 +6,34 @@
             <h1>Detalles del jugador<br><b>{{ $player->name }}</b></h1>
             <br>
             
-            <p>Dorsal: <b>{{ $player->dorsal }}</b></p>
-            <p>Nacionalidad: <b>{{ $player->nationality }}</b></p>
-            <p>Equipo perteneciente: <b>{{ $team->name }}</b></p>
-            <p>Posición: <b>{{ $player->position }}</b></p>
+            <p>Dorsal: 
+                @if (isset($player->dorsal))
+                <b>{{ $player->dorsal }}</b>
+                @else
+                <b>Sin asignar</b>
+                @endif
+            </p>
+            <p>Nacionalidad: 
+                @if (isset($player->nationality))
+                <b>{{ $player->nationality }}</b>
+                @else
+                <b>Desconocida</b>
+                @endif
+            </p>
+            <p>Equipo perteneciente: 
+                @if (isset($team->name))
+                <b>{{ $team->name }}</b>
+                @else
+                <b>Sin asignar</b>
+                @endif
+            </p>
+            <p>Posición: 
+                @if (isset($player->position))
+                <b>{{ $player->position }}</b>
+                @else
+                <b>Sin asignar</b>
+                @endif
+            </p>
             <br>
                 
             <p>

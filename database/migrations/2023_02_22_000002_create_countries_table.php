@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 45)->unique();
             $table->string('diminutive', 5)->unique()->nullable();
-            $table->string('continent', 30);
-            $table->string('first_language', 30);
+            $table->string('continent', 30)->nullable();
+            $table->string('first_language', 30)->nullable();
             $table->timestamps();
         });
     }

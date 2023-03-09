@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name', 45)->unique();
-            $table->string('diminutive', 5)->unique();
-            $table->string('coach', 45);
+            $table->string('diminutive', 5)->unique()->nullable();
+            $table->string('coach', 45)->nullable();
             $table->foreignId('country_id')->constrained();
             $table->json('players')->nullable();
             $table->timestamps();

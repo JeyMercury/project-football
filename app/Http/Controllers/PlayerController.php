@@ -46,7 +46,7 @@ class PlayerController extends Controller
             'name' => ['required', 'unique:players,name'],
             'dorsal' => '',
             'nationality' => '',
-            'team_id' => 'required',
+            'team_id' => '',
             'position' => '',
         ], [
             'name.required' => 'El nombre es obligatorio',

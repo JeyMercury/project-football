@@ -6,11 +6,41 @@
             <h1>Detalles del equipo<br><b>{{ $team->name }}</b></h1>
             <br>
             
-            <p>Diminutivo: <b>{{ $team->diminutive }}</b></p>
-            <p>Entrenador: <b>{{ $team->coach }}</b></p>
-            <p>País perteneciente: <b>{{ $country->name }}</b></p>
-            <p>Competiciones en las que participa: <b>{{ $competitions->pluck('name')->implode(', ') }}</b></p>
-            <p>Jugadores: <b>{{ $players->pluck('name')->implode(', ') }}</b></p>
+            <p>Diminutivo: 
+                @if (isset($team->diminutive))
+                <b>{{ $team->diminutive }}</b>
+                @else
+                <b>Sin asignar</b>
+                @endif
+            </p>
+            <p>Entrenador: 
+                @if (isset($team->coach))
+                <b>{{ $team->coach }}</b>
+                @else
+                <b>Sin asignar</b>
+                @endif
+            </p>
+            <p>País perteneciente: 
+                @if (isset($country->name))
+                <b>{{ $country->name }}</b>
+                @else
+                <b>Desconocido</b>
+                @endif
+            </p>
+            <p>Competiciones en las que participa: 
+                @if ($competitions->isNotEmpty())
+                <b>{{ $competitions->pluck('name')->implode(', ') }}</b>
+                @else
+                <b>No hay competiciones asignadas</b>
+                @endif
+            </p>
+            <p>Jugadores: 
+                @if ($players->isNotEmpty())
+                <b>{{ $players->pluck('name')->implode(', ') }}</b>
+                @else
+                <b>No hay jugadores asignados</b>
+                @endif
+            </p>
             <br>
                 
             <p>
