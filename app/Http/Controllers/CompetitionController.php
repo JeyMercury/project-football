@@ -43,14 +43,13 @@ class CompetitionController extends Controller
     }
 
     public function store(Request $request, Competition $competition) {
-
-        // $competition = Competition::create($request->all());
         
         $data = request()->validate([
             'name' => ['required', 'unique:competitions,name'],
             'host_country' => '',
         ], [
-            'name.required' => 'El nombre es obligatorio'
+            'name.required' => 'El nombre es obligatorio',
+            'name.unique' => 'Ya existe una competición con ese nombre',
         ]);
 
         $competition = Competition::create([
@@ -69,7 +68,7 @@ class CompetitionController extends Controller
 
         $teams = Team::all();
 
-        return view('competitions/competitionsEdit',[
+        return view('competitions/competitionsEdit', [
             'competition' => $competition,
             'teams' => $teams,
         ]);
@@ -80,14 +79,19 @@ class CompetitionController extends Controller
         $data = request()->validate([
             'name' => 'required',
             'host_country' => '',
+        ], [
+            'name.required' => 'El nombre es obligatorio'
         ]);
+
+        $teams = collect($request->input('teams', []));
         
-        $competition->teams()->sync([$request->teams]);
+        $competition->teams()->sync($teams);
 
         $competition->update($data);
 
         return redirect()->route('competitions.details', [
             'competition' => $competition,
+            'teams' => $teams,
         ]);
     }
 

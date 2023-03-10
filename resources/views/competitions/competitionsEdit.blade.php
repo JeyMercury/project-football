@@ -2,7 +2,6 @@
 
     <body class="antialiased">
         <section>
-            <!--for demo wrap-->
             <h1>Editar competición</h1>
             <br>
 
@@ -13,8 +12,6 @@
             </p>
         </section>
     </body>
-
-
 
 <script src="{{ asset('js/app.js') }}" defer></script>
 
