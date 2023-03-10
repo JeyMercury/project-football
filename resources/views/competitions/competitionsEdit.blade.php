@@ -6,41 +6,7 @@
             <h1>Editar competición</h1>
             <br>
 
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <h3 style='color:red;'>Hay errores en el formulario:</h3>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li style='color:red;'>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            <br><br>
-            @endif
-
-            
-            <form class="fillable" method="POST" action="{{ route('competitions.update', $competition) }}">
-                {{ method_field('PUT') }}
-                {{ csrf_field() }}
-
-                <label for="name">Nombre de la Competición:</label>
-                <input type="text" name="name" value="{{ old('name', $competition->name) }}">
-                <br><br>
-                <label for="host_country">País anfitrión:</label>
-                <input type="text" name="host_country" value="{{ old('host_country', $competition->host_country) }}">
-                <br><br>
-                <label for="teams">Equipos participantes:</label>
-                <select name="teams[]" value="{{ old('teams', $competition->team_id) }}" multiple="multiple">
-                    <option selected="true" value="" disabled>Selecciona Equipos</option>
-                    @foreach ($teams as $team)
-                        <option value="{{ $team->id }}">{{ $team->name }}</option>
-                    @endforeach
-                </select>
-                <br><br>
-            
-                <button type="submit" class="button btn-primary">Actualizar competición</button>
-            </form>
-            <br>
+            @include('competitions.competitionsForm')
             
             <p>
                 <a href="{{ url('/competiciones') }}">&lt;&lt; Volver</a>
