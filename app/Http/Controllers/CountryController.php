@@ -26,14 +26,14 @@ class CountryController extends Controller
         ]);
     }
 
-    public function create() {
+    public function create(Country $country) {
 
-        return view('countries/countriesCreate');
+        return view('countries/countriesCreate', [
+            'country' => $country,
+        ]);
     }
 
     public function store() {
-
-        // return redirect('usuarios/crear')->withInput();
 
         $data = request()->validate([
             'name' => ['required', 'unique:countries,name'],
@@ -56,7 +56,7 @@ class CountryController extends Controller
 
     public function edit(Country $country) {
 
-        return view('countries/countriesEdit',[
+        return view('countries/countriesEdit', [
             'country' => $country,
         ]);
     }
@@ -68,17 +68,21 @@ class CountryController extends Controller
             'diminutive' => '',
             'continent' => '',
             'first_language' => '',
+        ], [
+            'name.required' => 'El nombre es obligatorio'
         ]);
 
         $country->update($data);
 
-        return redirect()->route('countries.details', ['country' => $country]);
+        return redirect()->route('countries.details', [
+            'country' => $country,
+        ]);
     }
 
-    // function destroy(Country $country) {
+    function destroy(Country $country) {
 
-    //     $country->delete();
+        $country->delete();
 
-    //     return redirect()->route('countries');
-    // }
+        return redirect()->route('countries');
+    }
 }

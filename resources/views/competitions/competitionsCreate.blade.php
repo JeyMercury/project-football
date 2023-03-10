@@ -2,7 +2,6 @@
 
     <body class="antialiased">
         <section>
-            <!--for demo wrap-->
             <h1>Crear competición</h1>
             <br>
 

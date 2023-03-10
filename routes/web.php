@@ -49,8 +49,8 @@ Route::get('/paises/{country}/editar', [CountryController::class, 'edit'])
     ->name('countries.edit');
 Route::put('/countries/{country}', [CountryController::class, 'update'])
     ->name('countries.update');
-// Route::delete('/paises/{country}', [CountryController::class, 'destroy'])
-//     ->name('countries.destroy');
+Route::delete('/paises/{country}', [CountryController::class, 'destroy'])
+    ->name('countries.destroy');
 
 
 Route::get('/equipos', [TeamController::class, 'index'])

@@ -28,12 +28,15 @@
                         <tr>
                             <td>{{ $country->name }}</td>
                             <td>
-                                <form method="POST">
+                                <form action="{{ route('countries.destroy', $country) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <a href="{{ route('countries.details', $country) }}" class="btn btn-link"><i class="fas fa-eye"></i></a>   
                                     <a href="{{ route('countries.edit', $country) }}" class="btn btn-link"><i class="fas fa-pen"></i></a>
-                                    {{-- <a href="{{ route('countries.destroy', $country) }}" class="btn btn-link"><button type="submit" class="btn btn-link"><i class="fas fa-trash"></i></button></a> --}}
+                                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#countryDelete{{ $country->id }}">
+                                        <i class="fas fa-trash" title="Eliminar"></i>
+                                    </button>
+                                    @include('countries.countriesDelete')
                                 </form>
                             </td>
                         </tr>

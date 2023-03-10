@@ -38,9 +38,9 @@
 
         <button type="submit" class="button btn-primary">
             @if (Route::current()->getName() == 'competitions.create')
-                Crear competición
+                Crear Competición
             @else
-                Actualizar competición
+                Actualizar Competición
             @endif
         </button>
     </form>
