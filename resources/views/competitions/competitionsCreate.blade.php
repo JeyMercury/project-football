@@ -25,22 +25,27 @@
                 <label for="name">Nombre de la Competición:</label>
                 <input type="text" name="name" value="{{ old('name') }}">
                 @if ($errors->has('name'))
+                    <br>
                     <label style='color:red;'>{{ $errors->first('name') }}</label>
                 @endif
                 <br><br>
                 <label for="host_country">País anfitrión:</label>
                 <input type="text" name="host_country" value="{{ old('host_country') }}">
                 <br><br>
-                {{-- <label for="teams">Equipos participantes:</label>
-                <select name="teams" value="{{ old('teams', $competition->team_id) }}" multiple>
-                    <option selected="true" value="" disabled>Selecciona Equipos</option>
-                    @foreach ($teams as $team)
-                        <option value="{{ $team->id }}">{{ $team->name }}</option>                        
-                    @endforeach
+                <label for="teams">Equipos participantes:</label>
+                <select name="teams" value="{{ old('teams', $competition->team_id) }}" multiple="multiple">
+                    @if(isset($teams))
+                        <option selected="true" value="" disabled>Selecciona Equipos</option>
+                        @foreach ($teams as $team)
+                            <option value="{{ $team->id }}">{{ $team->name }}</option>                        
+                        @endforeach
+                    @else
+                        <b>No hay equipos que asignar</b>
+                    @endif
                 </select>
-                <br><br> --}}
+                <br><br>
             
-                <button type="submit">Crear competición</button>
+                <button type="submit" class="button btn-primary">Crear competición</button>
             </form>
             <br>
             

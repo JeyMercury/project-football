@@ -8,16 +8,16 @@
             
             <p>País anfitrión: 
                 @if (isset($competition->host_country))
-                <b>{{ $competition->host_country }}</b>
+                    <b>{{ $competition->host_country }}</b>
                 @else
-                <b>Sin asignar</b>
+                    <b>Sin asignar</b>
                 @endif
             </p>
             <p>Equipos participantes: 
                 @if ($teams->isNotEmpty())
-                <b>{{ $teams->pluck('name')->implode(', ') }}</b>
+                    <b>{{ $teams->pluck('name')->implode(', ') }}</b>
                 @else
-                <b>No hay equipos asignados</b>
+                    <b>No hay equipos asignados</b>
                 @endif
             </p>
             <br>

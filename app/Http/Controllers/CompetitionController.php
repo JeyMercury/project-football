@@ -22,7 +22,7 @@ class CompetitionController extends Controller
 
     public function details(Competition $competition) {
 
-        // $competition = Competition::findOrFail($competition->id);
+        $competition = Competition::findOrFail($competition->id);
 
         $teams = $competition->teams()->get();
 
@@ -34,16 +34,18 @@ class CompetitionController extends Controller
 
     public function create(Competition $competition) {
 
+        $teams = Team::all();
+
         return view('competitions/competitionsCreate', [
             'competition' => $competition,
+            'teams' => $teams,
         ]);
     }
 
     public function store(Request $request, Competition $competition) {
 
-        // return redirect('usuarios/crear')->withInput();
-        $competition->teams()->syncWithoutDetaching($request->teams);
-
+        // $competition = Competition::create($request->all());
+        
         $data = request()->validate([
             'name' => ['required', 'unique:competitions,name'],
             'host_country' => '',
@@ -51,19 +53,25 @@ class CompetitionController extends Controller
             'name.required' => 'El nombre es obligatorio'
         ]);
 
-        Competition::create([
+        $competition = Competition::create([
             'name' => $data['name'],
             'host_country' => $data['host_country'],
         ]);
 
+        $teams = collect($request->input('teams', []));
+
+        $competition->teams()->sync($teams);
 
         return redirect()->route('competitions');
     }
 
     public function edit(Competition $competition) {
 
+        $teams = Team::all();
+
         return view('competitions/competitionsEdit',[
             'competition' => $competition,
+            'teams' => $teams,
         ]);
     }
 
@@ -74,11 +82,13 @@ class CompetitionController extends Controller
             'host_country' => '',
         ]);
         
-        $competition->teams()->syncWithoutDetaching($request->teams);
+        $competition->teams()->sync([$request->teams]);
 
         $competition->update($data);
 
-        return redirect()->route('competitions.details', ['competition' => $competition]);
+        return redirect()->route('competitions.details', [
+            'competition' => $competition,
+        ]);
     }
 
     function destroy(Competition $competition) {

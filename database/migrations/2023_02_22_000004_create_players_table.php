@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('name', 50);
             $table->integer('dorsal')->nullable();
             $table->string('nationality', 25)->nullable();
-            $table->foreignId('team_id')->constrained();
+            $table->unsignedBigInteger('team_id')
+                ->references('id')
+                ->on('teams')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
             $table->string('position', 25)->nullable();
             $table->timestamps();
         });

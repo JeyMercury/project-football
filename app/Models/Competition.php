@@ -12,11 +12,6 @@ class Competition extends Model
     protected $fillable = [
         'name',
         'host_country',
-        'teams',
-    ];
-
-    protected $cast = [
-        'teams' => 'array',
     ];
 
     /**
@@ -24,6 +19,8 @@ class Competition extends Model
      */
     public function teams()
     {
-        return $this->belongsToMany(Team::class, 'competition_team', 'competition_id', 'team_id')->withTimestamps()->as('competition_teams');
+        return $this->belongsToMany(Team::class, 'competition_team', 'competition_id', 'team_id')
+            ->withTimestamps()
+            ->as('competition_team');
     }
 }

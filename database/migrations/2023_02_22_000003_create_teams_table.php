@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('name', 45)->unique();
             $table->string('diminutive', 5)->unique()->nullable();
             $table->string('coach', 45)->nullable();
-            $table->foreignId('country_id')->constrained();
+            $table->unsignedBigInteger('country_id')
+                ->references('id')
+                ->on('countries')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
             $table->json('players')->nullable();
             $table->timestamps();
         });

@@ -14,14 +14,16 @@ return new class extends Migration
         Schema::create('competition_team', function (Blueprint $table) {
             $table->id();
 
-            // $table->foreignId('competition_id')->constrained();
-            // $table->foreignId('team_id')->constrained();
-
-            $table->unsignedBigInteger('team_id');
-            $table->unsignedBigInteger('competition_id');
-
-            $table->foreign('team_id')->references('id')->on('competitions')->onDelete('cascade');
-            $table->foreign('competition_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->unsignedBigInteger('team_id')
+                ->references('id')
+                ->on('competitions')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+            $table->unsignedBigInteger('competition_id')
+                ->references('id')
+                ->on('teams')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
 
             $table->timestamps();
         });
