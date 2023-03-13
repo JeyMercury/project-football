@@ -24,6 +24,8 @@ class TeamController extends Controller
 
     public function details(Team $team) {
 
+        $team = Team::findOrFail($team->id);
+
         $country = Country::where('id', $team->country_id)->first();
         $competitions = $team->competitions()->get();
         $players = $team->players()->get();
@@ -40,40 +42,37 @@ class TeamController extends Controller
 
         $countries = Country::orderBy('name', 'asc')->get();
         $competitions = Competition::orderBy('name', 'asc')->get();
-        $players = Player::orderBy('name', 'asc')->get();
 
         return view('teams/teamsCreate', [
             'team' => $team,
             'countries' => $countries,
             'competitions' => $competitions,
-            'players' => $players,
         ]);
     }
 
-    public function store(Team $team) {
+    public function store(Request $request, Team $team) {
 
         $data = request()->validate([
             'name' => ['required', 'unique:teams,name'],
             'diminutive' => '',
             'coach' => '',
-            'country_id' => '',
-            'players' => [''],
+            'country_id' => 'required',
+            'competitions' => '',
         ], [
-            'name.required' => 'El nombre es obligatorio'
+            'name.required' => 'El nombre es obligatorio',
+            'name.unique' => 'Ya existe un equipo con ese nombre',
+            'country_id.required' => 'El país es obligatorio',
         ]);
 
-        Team::create([
+        $team = Team::create([
             'name' => $data['name'],
             'diminutive' => $data['diminutive'],
             'coach' => $data['coach'],
             'country_id' => $data['country_id'],
         ]);
 
-        // $players = $data['players'];
-
-        Player::where('name', $data['players'])
-            ->update(['team_id' => $team->id]);
-        
+        $competitions = collect($request->input('competitions', []));
+        $team->competitions()->sync($competitions);
 
         return redirect()->route('teams');
     }
@@ -82,28 +81,34 @@ class TeamController extends Controller
 
         $countries = Country::orderBy('name', 'asc')->get();
         $competitions = Competition::orderBy('name', 'asc')->get();
-        $players = Player::orderBy('name', 'asc')->get();
 
         return view('teams/teamsEdit',[
             'team' => $team,
             'countries' => $countries,
             'competitions' => $competitions,
-            'players' => $players,
         ]);
     }
 
-    public function update(Team $team) {
+    public function update(Request $request, Team $team) {
         
         $data = request()->validate([
             'name' => 'required',
             'diminutive' => '',
             'coach' => '',
             'country_id' => '',
+        ], [
+            'name.required' => 'El nombre es obligatorio'
         ]);
+
+        $competitions = collect($request->input('competitions', []));
+        $team->competitions()->sync($competitions);
 
         $team->update($data);
 
-        return redirect()->route('teams.details', ['team' => $team]);
+        return redirect()->route('teams.details', [
+            'team' => $team,
+            'competitions' => $competitions,
+        ]);
     }
 
     function destroy(Team $team) {

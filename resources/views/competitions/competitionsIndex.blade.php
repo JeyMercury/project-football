@@ -16,6 +16,7 @@
                     <thead>
                         <tr>
                             <th>Competición</th>
+                            <th>Equipos Participantes</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -27,6 +28,7 @@
                     @foreach ($competitions as $competition)
                         <tr>
                             <td>{{ $competition->name }}</td>
+                            <td>{{ $competition->teams()->get()->pluck('name')->implode(', ') }}</td>
                             <td>
                                 <form action="{{ route('competitions.destroy', $competition) }}" method="POST">
                                     {{ csrf_field() }}
@@ -41,7 +43,6 @@
                             </td>
                         </tr>
                     @endforeach
-
                     </tbody>
                 </table>
                 @else
@@ -52,15 +53,6 @@
         </section>
     </body>
 
-
-
 <script src="{{ asset('js/app.js') }}" defer></script>
-{{-- <script type="text/javascript">
-    $(document).ready(function(){
-        setTimeout(function() => {
-            $("#msj").fadeOut(1000);
-        }, 4000);
-    });
-</script> --}}
 
 @include('layouts.footer')

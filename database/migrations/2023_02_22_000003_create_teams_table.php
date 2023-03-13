@@ -21,7 +21,6 @@ return new class extends Migration
                 ->on('countries')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->json('players')->nullable();
             $table->timestamps();
         });
     }

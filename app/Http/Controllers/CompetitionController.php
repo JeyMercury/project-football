@@ -34,7 +34,7 @@ class CompetitionController extends Controller
 
     public function create(Competition $competition) {
 
-        $teams = Team::all();
+        $teams = Team::orderBy('name', 'asc')->get();
 
         return view('competitions/competitionsCreate', [
             'competition' => $competition,
@@ -58,7 +58,6 @@ class CompetitionController extends Controller
         ]);
 
         $teams = collect($request->input('teams', []));
-
         $competition->teams()->sync($teams);
 
         return redirect()->route('competitions');
@@ -66,7 +65,7 @@ class CompetitionController extends Controller
 
     public function edit(Competition $competition) {
 
-        $teams = Team::all();
+        $teams = Team::orderBy('name', 'asc')->get();
 
         return view('competitions/competitionsEdit', [
             'competition' => $competition,
@@ -84,7 +83,6 @@ class CompetitionController extends Controller
         ]);
 
         $teams = collect($request->input('teams', []));
-        
         $competition->teams()->sync($teams);
 
         $competition->update($data);

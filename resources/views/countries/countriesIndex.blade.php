@@ -16,6 +16,7 @@
                     <thead>
                         <tr>
                             <th>País</th>
+                            <th>Diminutivo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -27,6 +28,7 @@
                     @foreach ($countries as $country)
                         <tr>
                             <td>{{ $country->name }}</td>
+                            <td>{{ $country->diminutive }}</td>
                             <td>
                                 <form action="{{ route('countries.destroy', $country) }}" method="POST">
                                     {{ csrf_field() }}

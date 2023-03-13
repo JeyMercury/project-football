@@ -8,9 +8,9 @@
     <form class="fillable" method="POST" action="{{ route('countries') }}">
         {{ csrf_field() }}
 @else
-<form class="fillable" method="POST" action="{{ route('countries.update', $country) }}">
-    {{ method_field('PUT') }}
-    {{ csrf_field() }}
+    <form class="fillable" method="POST" action="{{ route('countries.update', $country) }}">
+        {{ method_field('PUT') }}
+        {{ csrf_field() }}
 @endif
 
         <label for="name">Nombre del país:</label>
@@ -24,10 +24,10 @@
         <input type="text" name="diminutive" value="{{ old('diminutive', $country->diminutive) }}">
         <br><br>
         <label for="continent">Continente perteneciente:</label>
-        <input type="text" name="continent">
+        <input type="text" name="continent" value="{{ old('continent', $country->continent) }}">
         <br><br>
         <label for="first_language">Primer idioma:</label>
-        <input type="text" name="first_language">
+        <input type="text" name="first_language" value="{{ old('first_language', $country->first_language) }}">
         <br><br>
 
         <button type="submit" class="button btn-primary">

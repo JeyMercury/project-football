@@ -17,9 +17,8 @@ use App\Http\Controllers\PlayerController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::get('/', function() {
-//     return 'home';
-// });
+Route::get('/')
+    ->name('home');
 
 Route::get('/competiciones', [CompetitionController::class, 'index'])
     ->name('competitions');
@@ -67,11 +66,6 @@ Route::put('/teams/{team}', [TeamController::class, 'update'])
     ->name('teams.update');
 Route::delete('/equipos/{team}', [TeamController::class, 'destroy'])
     ->name('teams.destroy');
-
-
-// Route::get('/competiciones/organigrama', function() {
-//     return 'Organigrama';
-// });
 
 
 Route::get('/jugadores', [PlayerController::class, 'index'])

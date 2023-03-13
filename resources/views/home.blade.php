@@ -7,6 +7,8 @@
                 <h1 class="pb-1">Project Football</h1>
             </div>
                 
+            <div>
+                <img src="images.ball-project-football.jpg" alt="home-blue-ball" width="460" height="345">
             </div>
         </section>
     </body>

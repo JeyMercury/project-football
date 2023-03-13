@@ -16,6 +16,8 @@
                     <thead>
                         <tr>
                             <th>Jugador</th>
+                            <th>Equipo</th>
+                            <th>Posición</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -27,6 +29,8 @@
                     @foreach ($players as $player)
                         <tr>
                             <td>{{ $player->name }}</td>
+                            <td>{{ $team->where('id', $player->team_id)->value('name') }}</td>
+                            <td>{{ $player->position }}</td>
                             <td>
                                 <form action="{{ route('players.destroy', $player) }}" method="POST">
                                     {{ csrf_field() }}
@@ -49,8 +53,6 @@
             </div>
         </section>
     </body>
-
-
 
 <script src="{{ asset('js/app.js') }}" defer></script>
 

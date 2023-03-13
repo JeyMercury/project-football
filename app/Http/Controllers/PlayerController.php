@@ -11,11 +11,13 @@ class PlayerController extends Controller
     public function index() {
 
         $players = Player::all();
+        $team = Team::all();
 
         $title = 'Jugadores';
 
         return view('players/playersIndex', [
             'players' => $players,
+            'team' => $team,
             'title' => $title,
         ]);
     }
@@ -43,14 +45,14 @@ class PlayerController extends Controller
     public function store() {
 
         $data = request()->validate([
-            'name' => ['required', 'unique:players,name'],
+            'name' => 'required',
             'dorsal' => '',
             'nationality' => '',
-            'team_id' => '',
+            'team_id' => 'required',
             'position' => '',
         ], [
             'name.required' => 'El nombre es obligatorio',
-            'team_id.required' => 'El equipo es obligatorio'
+            'team_id.required' => 'El equipo es obligatorio',
         ]);
 
         Player::create([

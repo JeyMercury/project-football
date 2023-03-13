@@ -2,7 +2,6 @@
 
     <body class="antialiased">
         <section>
-            <!--for demo wrap-->
             <h1>Detalles de la competición<br><b>{{ $competition->name }}</b></h1>
             <br>
             

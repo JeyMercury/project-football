@@ -16,6 +16,8 @@
                     <thead>
                         <tr>
                             <th>Equipo</th>
+                            <th>Competiciones en las que participa</th>
+                            <th>Jugadores pertenecientes</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -27,6 +29,8 @@
                     @foreach ($teams as $team)
                         <tr>
                             <td>{{ $team->name }}</td>
+                            <td>{{ $team->competitions()->get()->pluck('name')->implode(', ') }}</td>
+                            <td>{{ $team->players()->get()->pluck('name')->implode(', ') }}</td>
                             <td>
                                 <form action="{{ route('teams.destroy', $team) }}" method="POST">
                                     {{ csrf_field() }}
@@ -47,10 +51,9 @@
                     <p>No hay Equipos registrados.</p>
                 @endif
             </div>
+
         </section>
     </body>
-
-
 
 <script src="{{ asset('js/app.js') }}" defer></script>
 
