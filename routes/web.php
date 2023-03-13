@@ -17,8 +17,9 @@ use App\Http\Controllers\PlayerController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/')
-    ->name('home');
+Route::get('/', function () {
+    return view('home');
+});
 
 Route::get('/competiciones', [CompetitionController::class, 'index'])
     ->name('competitions');

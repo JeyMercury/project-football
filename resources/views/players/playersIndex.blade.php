@@ -16,7 +16,7 @@
                     <thead>
                         <tr>
                             <th>Jugador</th>
-                            <th>Equipo</th>
+                            <th>Equipo perteneciente</th>
                             <th>Posición</th>
                             <th>Acciones</th>
                         </tr>
