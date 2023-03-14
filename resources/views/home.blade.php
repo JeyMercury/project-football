@@ -4,7 +4,7 @@
         <section>
 
             <div class="d-flex justify-content-between align-items-end mb-3">
-                <h1 class="pb-1" style="background: white">Project Football</h1>
+                <h1 class="pb-1" style="background: whitesmoke">Project Football</h1>
             </div>
 
             <div class="home-menu">

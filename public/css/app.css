@@ -60,21 +60,17 @@ td{
 nav{
   width: 100%;
   text-align: center;
-  background-color: black;
+  background-color: #265a88;
 }
 .main-nav {
   list-style-type: none;
   margin: 0;
   padding: 20px;
   overflow: hidden;
-  background-color: black;
-  display: inline-block
+  background-color: #265a88;
+  border-color: #245580;
+  display: inline-block;
 }
-
-/* .main-nav-link{
-  display: grid;
-  text-align: center;
-} */
 
 li {
   float: left;
@@ -89,7 +85,7 @@ li a {
 }
 
 li a:hover:not(.active) {
-  background-color: dimgrey;
+  background-color: #183854;
 }
 span{
   color: white;
@@ -133,7 +129,8 @@ section{
   position: fixed;
   bottom: 0;
   text-align: center;
-  background-color: black;
+  background-color: #265a88;
+  border-color: #245580;
 }
 .made-by {
   margin-top: 0;

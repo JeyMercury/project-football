@@ -6,7 +6,9 @@
             <div class="d-flex justify-content-between align-items-end mb-3">
                 <h1 class="pb-1">{{ $title }}</h1>
                 <p class="createSection">
-                    <a href="{{ route('teams.create') }}" class="btn btn-link"><button class="button btn-primary btn-lg">Crear Equipo</button></a>
+                    <a href="{{ route('teams.create') }}" class="btn btn-link">
+                        <button class="button btn-primary btn-lg">Crear Equipo</button>
+                    </a>
                 </p>
             </div>
 
@@ -28,15 +30,19 @@
                     <tbody>
                     @foreach ($teams as $team)
                         <tr>
-                            <td>{{ $team->name }}</td>
+                            <td><b>{{ $team->name }}</b></td>
                             <td>{{ $team->competitions()->get()->pluck('name')->implode(', ') }}</td>
                             <td>{{ $team->players()->get()->pluck('name')->implode(', ') }}</td>
                             <td>
                                 <form action="{{ route('teams.destroy', $team) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <a href="{{ route('teams.details', $team) }}" class="btn btn-link"><i class="fas fa-eye"></i></a>   
-                                    <a href="{{ route('teams.edit', $team) }}" class="btn btn-link"><i class="fas fa-pen"></i></a>
+                                    <a href="{{ route('teams.details', $team) }}" class="btn btn-link">
+                                        <i class="fas fa-eye"></i>
+                                    </a>   
+                                    <a href="{{ route('teams.edit', $team) }}" class="btn btn-link">
+                                        <i class="fas fa-pen"></i>
+                                    </a>
                                     <button type="button" class="btn btn-link" data-toggle="modal" data-target="#teamDelete{{ $team->id }}">
                                         <i class="fas fa-trash" title="Eliminar"></i>
                                     </button>
