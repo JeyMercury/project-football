@@ -1,10 +1,10 @@
 .home::after{
-  background-image: url('/images/ball-project-football.jpg');
+  background-image: url('/images/white-ball.jpg');
   display: inline;
 }
 body::after {
   content: "";
-  opacity: 0.6;
+  opacity: 0.2;
   top: 0;
   left: 0;
   bottom: 0;
@@ -12,7 +12,11 @@ body::after {
   position: absolute;
   z-index: -1;   
 }
-
+.home-menu{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5px;
+}
 h1{
   font-size: 30px;
   color: black;
