@@ -2,7 +2,6 @@
 
     <body class="antialiased">
         <section>
-            <!--for demo wrap-->
             <h1>Detalles del País<br><b>{{ $country->name }}</b></h1>
             <br>
             

@@ -2,7 +2,6 @@
 
     <body class="antialiased">
         <section>
-            <!--for demo wrap-->
             <h1>Editar país</h1>
             <br>
 
