@@ -1,0 +1,163 @@
+.home::after{
+  background-image: url('/images/white-ball.jpg');
+  display: inline;
+}
+body::after {
+  content: "";
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+.home-menu{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5px;
+}
+h1{
+  font-size: 30px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  background-color: rgba(217,217,217,0.5);
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(217,217,217,0.5);
+}
+th{
+  padding: 20px 15px;
+  text-align: center;
+  font-weight: 750;
+  font-size: 20px;
+  color: black;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 16px;
+  color: black;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+/* Header styles */
+nav{
+  width: 100%;
+  text-align: center;
+  background-color: #265a88;
+}
+.main-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+  background-color: #265a88;
+  border-color: #245580;
+  display: inline-block;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 10px 50px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #183854;
+}
+span{
+  color: white;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.createButton:hover:not(.active) {
+  background-color: rgb(160, 160, 160);
+}
+
+.createSection{
+  text-align: left;
+}
+
+/* demo styles */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body{
+  background: -webkit-linear-gradient(to bottom right, white, whitesmoke, lightgrey);
+  background: linear-gradient(to bottom right, white, whitesmoke, lightgrey);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  height: 100%;
+}
+section{
+  min-height: 75vh;
+  margin: 30px;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+}
+.fillable{
+  text-align: right;
+}
+
+
+/* Footer */
+.foot{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  background-color: #265a88;
+  border-color: #245580;
+}
+.made-by {
+  margin-top: 0;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 16px;
+  font-family: arial;
+  color: white;
+}
+.made-by i {
+  font-style: normal;
+  color: white;
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+}
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
